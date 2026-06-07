@@ -1,0 +1,7 @@
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">{{comment}}</label>
+            <div class="layui-input-block">
+                <input type="number" name="{{field}}" class="layui-input" lay-affix="number" {{required}} placeholder="请输入{{comment}}" value="{{value}}">
+            </div>
+        </div>

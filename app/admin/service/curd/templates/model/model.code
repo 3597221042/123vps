@@ -1,0 +1,23 @@
+<?php
+
+namespace {{modelNamespace}};
+
+use app\common\model\TimeModel;
+
+class {{modelName}} extends TimeModel
+{
+
+    protected function getOptions(): array
+    {
+        return [
+            'name'       => "{{table}}",
+            'table'      => "{{prefix_table}}",
+            'deleteTime' => {{deleteTime}},
+        ];
+    }
+
+    public array $notes = {{selectArrays}};
+
+    {{relationList}}
+
+}

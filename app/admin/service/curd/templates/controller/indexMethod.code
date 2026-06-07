@@ -1,0 +1,21 @@
+
+    #[NodeAnnotation(title: '列表', auth: true)]
+    public function index(\app\Request $request): \think\response\Json|string
+    {
+        if ($request->isAjax()) {
+            if (input('selectFields')) {
+                return $this->selectList();
+            }
+            list($page, $limit, $where) = $this->buildTableParams();
+            $count = $this->model->where($where)->{{relationIndexMethod}}->count();
+            $list  = $this->model->where($where)->{{relationIndexMethod}}->page($page, $limit)->order($this->sort)->select()->toArray();
+            $data  = [
+                'code'  => 0,
+                'msg'   => '',
+                'count' => $count,
+                'data'  => $list,
+            ];
+            return json($data);
+        }
+        return $this->fetch();
+    }
